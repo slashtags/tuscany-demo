@@ -1,0 +1,16 @@
+{
+  "name": "tuscany_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "examples:speech:widget": "node speechWidget.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@synonymdev/slashtags-sdk": "^1.0.0-alpha.38"
+  }
+}
