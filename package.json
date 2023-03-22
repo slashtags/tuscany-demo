@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "examples:speech:widget": "node speechWidget.js"
+    "examples:speech:widget": "node speechWidget.js",
+    "examples:abc:profiles": "\"run `node alice.js`, \ncopy Alice's public key and introduce her to Bob by \nrunning `node bob.js` in a separate session,\nthen copy Bob's public key and introduce him to Carol by \nrunning `node carol.js` in a separate session\""
   },
   "author": "",
   "license": "ISC",
