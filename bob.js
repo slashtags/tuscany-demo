@@ -11,9 +11,12 @@ await bobPublicDrive.put('/profile.json', Buffer.from(JSON.stringify({ name: 'Bo
 console.log('Hey, I am Bob! This is my key', bobPublicDrive.key.toString('hex'))
 console.log('Paste somebody\'s key below to introduce them')
 
-const bobContactsDrive = slashtagBob.drivestore.get('contacts') // private drive
+// Create an encrypted hyperdrive for Bob's contacts
+const bobContactsDrive = slashtagBob.drivestore.get('contacts')
 await bobContactsDrive.ready()
 
+// Clone the hyperdrive identified by a public key entered into the terminal. 
+// Parse the profile data and store the name with public key in the contacts drive. 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -26,7 +29,7 @@ rl.on('line', async (key) => {
   console.log(`Hey, ${name}! Nice to meet you!`)
 
   console.log(`This is my private contact of ${name}`, profile.toString())
-  await bobContactsDrive.put('/contacts.json', Buffer.from(JSON.stringify({ name: `${name}(bowling)`, public_key: key })))
+  await bobContactsDrive.put('/contacts.json', Buffer.from(JSON.stringify({ name: `${name}`, public_key: key })))
 
   await contact.close()
 })
