@@ -7,11 +7,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "examples:speech:widget": "node speechWidget.js",
-    "examples:abc:profiles": "\"run `node alice.js`, \ncopy Alice's public key and introduce her to Bob by \nrunning `node bob.js` in a separate session,\nthen copy Bob's public key and introduce him to Carol by \nrunning `node carol.js` in a separate session\""
+    "examples:abc:profiles": "\"run `node alice.js`, \ncopy Alice's public key and introduce her to Bob by \nrunning `node bob.js` in a separate session,\nthen copy Bob's public key and introduce him to Carol by \nrunning `node carol.js` in a separate session\"",
+    "examples:seed": "node seedBackup.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@synonymdev/slashtags-sdk": "^1.0.0-alpha.38"
+    "@synonymdev/slashtags-sdk": "^1.0.0-alpha.38",
+    "bip32": "^4.0.0",
+    "bip39": "^3.1.0",
+    "tiny-secp256k1": "^2.2.1"
   }
 }
