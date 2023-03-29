@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import readline from 'node:readline'
 import { SDK, SlashURL } from '@synonymdev/slashtags-sdk'
+import qrcode from 'qrcode-terminal'
 
 const sdk = new SDK()
 const slashtag = sdk.slashtag('demo')
@@ -19,8 +20,10 @@ rl.on('close', async () => {
 })
 
 const path = '/feed/text'
+const url = SlashURL.format(drive.key, { protocol: 'slashfeed:' })
 
-console.log('Convert me to QR and scan with bitkit:', SlashURL.format(drive.key, { protocol: 'slashfeed:' }))
+qrcode.generate(url, { small: true })
+console.log(`Scan the QR or copy url:\n${url}\n`)
 
 await drive.put(path, Buffer.from('hello world'))
 
