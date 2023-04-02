@@ -1,6 +1,6 @@
 // Create an instance of the SDK.
 // Automatically starts a DHT node and announces a data server listening on a public key.
-import SDK from '@synonymdev/slashtags-sdk'
+import { SDK, SlashURL } from '@synonymdev/slashtags-sdk'
 const sdk = new SDK({ storage: './alice' })
 
 // Create a slashtag for Alice
@@ -12,7 +12,11 @@ const alicePublicDrive = slashtagAlice.drivestore.get()
 await alicePublicDrive.ready()
 
 // Show the public key for the drive
-console.log('Hey my name is Alice and this is my key:', alicePublicDrive.key.toString('hex'))
+const url = SlashURL.format(alicePublicDrive.key, {
+  path: '/profile.json',
+  protocol: 'slashfeed:'
+})
+console.log('Hey my name is Alice and this is my profile:', url)
 
 // Store Alice's profile data onto the drive as a buffer
 const profile = { name: 'Alice Smith', age: 36, occupation: 'Lawyer' }
