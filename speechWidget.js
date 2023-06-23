@@ -25,16 +25,17 @@ const url = SlashURL.format(drive.key, { protocol: 'slashfeed:' })
 qrcode.generate(url, { small: true })
 console.log(`Scan the QR or copy url:\n${url}\n`)
 
-await drive.put(path, Buffer.from('hello world'))
+await drive.put(path, Buffer.from('El Salvador Rules!'))
 
 const img = fs.readFileSync('./image.bs64', 'utf-8')
 await drive.put('/slashfeed.json', Buffer.from(JSON.stringify({
-  name: 'Jan says',
-  description: 'Jan will send his love here',
+  name: 'Hola, El Salvador!',
+  description: 'desc',
   icons: { 200: img },
   fields: [
     {
-      name: 'to all of you',
+      name: 'Viva El Salvador!',
+      description: 'text',
       main: path
     }
   ]
